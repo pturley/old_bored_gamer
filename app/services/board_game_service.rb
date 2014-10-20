@@ -1,0 +1,3 @@
+class BoardGameService
+
+end

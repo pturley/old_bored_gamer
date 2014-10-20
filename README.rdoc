@@ -1,0 +1,17 @@
+== If you want...I guess
+
+* vagrant plugin install vagrant-librarian-puppet
+
+== Setup locally
+
+# bundle install
+# librarian-puppet install
+# vagrant up
+# vagrant ssh
+# cd /vagrant
+# bundle install --path ~/bundle
+# bundle exec rake db:create db:migrate
+# RAILS_ENV=test bundle exec rake db:create db:migrate
+# bundle exec rspec
+# bundle exec rails s
+# go to a browser and look at localhost:3000/ to verify that the app works

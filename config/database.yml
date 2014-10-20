@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  host: localhost
+  template: template0
+  username: postgres
+  password: password
+
+development:
+  <<: *default
+  database: bored_gamer_development
+
+test:
+  <<: *default
+  database: bored_gamer_test
+
+staging:
+  <<: *default
+  database: bored_gamer_staging
+
+production:
+  <<: *default
+  database: bored_gamer_production
