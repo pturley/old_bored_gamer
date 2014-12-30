@@ -1,19 +1,21 @@
 = search_form_for @q do |f|
-  = f.search_field :names_or_categories_name_cont
+  = f.search_field :names_or_categories_name_or_mechanics_name_cont
   = f.submit
 
 %table
   %thead
     %tr
-      %th ID
-      %th Name
+      = content_tag :th, sort_link(@q, :id)
+      = content_tag :th, sort_link(@q, :primary_name, "Name")
       %th Categories
+      %th Mechanics
   %tbody
     - @board_games.each do |board_game|
       %tr
         %th= board_game.id
         %td= board_game.primary_name
         %td= board_game.categories.map(&:name).join(", ")
+        %td= board_game.mechanics.map(&:name).join(", ")
 
 
 = will_paginate @board_games
