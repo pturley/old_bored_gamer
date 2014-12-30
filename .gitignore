@@ -20,3 +20,4 @@ modules/*
 .tmp
 .vagrant
 public/system
+.DS_Store
