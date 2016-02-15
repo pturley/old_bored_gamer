@@ -24,6 +24,7 @@ class BoardGame < ActiveRecord::Base
       BoardGame.create({
         bgg_id: game_hash["id"],
         primary_name: [game_hash["name"]].flatten.select { |name| name["type"] == "primary" }.first["value"],
+        image: game_hash["image"],
         names: [game_hash["name"]].flatten.map { |name| name["value"] }.join(","),
         description: game_hash["description"],
         year_published: game_hash["yearpublished"]["value"],

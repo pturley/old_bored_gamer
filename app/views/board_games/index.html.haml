@@ -5,15 +5,15 @@
 %table
   %thead
     %tr
-      = content_tag :th, sort_link(@q, :id)
+      %th
       = content_tag :th, sort_link(@q, :primary_name, "Name")
       %th Categories
       %th Mechanics
   %tbody
     - @board_games.each do |board_game|
       %tr
-        %th= board_game.id
-        %td= board_game.primary_name
+        %th= image_tag board_game.image, style: "height: 100px"
+        %td= link_to board_game, board_game_path(board_game)
         %td= board_game.categories.map(&:name).join(", ")
         %td= board_game.mechanics.map(&:name).join(", ")
 

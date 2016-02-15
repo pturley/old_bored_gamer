@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140921053801) do
   create_table "board_games", force: true do |t|
     t.integer  "bgg_id"
     t.string   "primary_name"
+    t.string   "image"
     t.text     "names"
     t.text     "description"
     t.integer  "year_published"
