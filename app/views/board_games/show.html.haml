@@ -1,0 +1,39 @@
+= image_tag @board_game.image, style: "height: 500px"
+
+%h2
+  =@board_game
+
+%div
+  =@board_game.description
+
+%div
+  %h3
+    Gameplay Information
+  %table
+    %tr
+      %td="Players"
+      %td="#{@board_game.min_players} - #{@board_game.max_players}"
+    %tr
+      %td="Playtime"
+      %td="#{@board_game.playtime} minutes"
+    %tr
+      %td="Categories"
+      %td=@board_game.categories.map(&:name).join(", ");
+  %h4
+    Gameplay Mechanics
+  %div
+    =@board_game.mechanics.map(&:name).join(", ");
+
+%div
+  %h3
+    Game Information
+  %table
+    %tr
+      %td="Publisher"
+      %td=@board_game.publishers.map(&:name).join(", ")
+    %tr
+      %td="Published"
+      %td=@board_game.year_published
+    %tr
+      %td="Artists"
+      %td=@board_game.artists.map(&:name).join(", ")
