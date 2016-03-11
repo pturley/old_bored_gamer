@@ -1,17 +1,18 @@
-== If you want...I guess
+== Install Vagrant & Vagrant Plugins
 
 * vagrant plugin install vagrant-librarian-puppet
 
 == Setup locally
 
-# bundle install
-# librarian-puppet install
-# vagrant up
-# vagrant ssh
-# cd /vagrant
-# bundle install --path ~/bundle
-# bundle exec rake db:create db:migrate
-# RAILS_ENV=test bundle exec rake db:create db:migrate
-# bundle exec rspec
-# bundle exec rails s
-# go to a browser and look at localhost:3000/ to verify that the app works
+1. mkdir modules
+2. vagrant up
+3. vagrant ssh
+4. bundle exec rake db:create db:migrate
+5. RAILS_ENV=test bundle exec rake db:create db:migrate
+6. bundle exec rails s
+7. go to a browser and look at localhost:3000/ to verify that the app works
+
+== Loading data
+
+1. Unzip compressed archive to tmp/
+2. bundle exec rake xmls:put_in_db

@@ -27,6 +27,11 @@ package { ['libxml2', 'libxml2-dev', 'libxslt1-dev']:
   ensure => installed
 }
 
+#pg dependencies.
+package { ['libpq-dev'] :
+  ensure => installed
+}
+
 # --- Ruby -------------------------------------------------------------------
 
 class { 'rbenv': }
