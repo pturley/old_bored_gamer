@@ -4,12 +4,12 @@ namespace :xmls do
     `ls -la tmp/xmls/ | grep "    45" | awk '{print $9}' | xargs -I % rm tmp/xmls/%`
     existing_xmls = Dir.new("tmp/xmls").to_a
 
-    (1..165000).step(500).each do |start_id|
+    (1..250000).step(500).each do |start_id|
       end_id = start_id + 499
       file_name = "#{'%06i' % start_id}-#{'%06i' % end_id}.xml"
       unless existing_xmls.include?(file_name)
         puts "Getting #{file_name}"
-        curl_string = "curl \"http://www.boardgamegeek.com/xmlapi2/thing?type=boardgame&stats=1&id=#{(start_id..end_id).to_a.join(',')}\" -o tmp/xmls/#{file_name} --connect-timeout 500 --max-time 500"
+        curl_string = "curl \"https://www.boardgamegeek.com/xmlapi/boardgame/#{(start_id..end_id).to_a.join(',')}\" -o tmp/xmls/#{file_name} --connect-timeout 30000 --max-time 30000"
         `#{curl_string}`
         puts "Got it"
       end
